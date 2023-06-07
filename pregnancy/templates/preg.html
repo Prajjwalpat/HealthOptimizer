@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pregnancy Calculator</title>
+</head>
+<body>
+	<h1>Pregnancy Calculator</h1>
+	<form method="POST" action="{{ url_for('calculate_pregnancy') }}">
+		<label for="last_period">Date of Last Menstrual Period:</label>
+		<input type="date" name="last_period" required>
+  		<br><br>
+  		<input type="submit" value="Calculate">
+	</form>
+	{% if result %}
+		<p>Your estimated due date is {{ result }}.</p>
+	{% endif %}
+</body>
+</html>

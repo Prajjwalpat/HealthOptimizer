@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI Calculator</title>
+	<style>
+		input[type="number"] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			background-color: #f8f8f8;
+			font-size: 16px;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		table {
+			margin: auto;
+			border-collapse: collapse;
+			border: 1px solid black;
+			width: 50%;
+		}
+
+		th, td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>BMI Calculator</h1>
+	<form method="post" action="{{ url_for('calculate_bmi') }}">
+		<label for="weight">Weight (in kg):</label>
+		<input type="number" id="weight" name="weight" required>
+		<br>
+		<label for="height">Height (in cm):</label>
+		<input type="number" id="height" name="height" required>
+		<br>
+		<input type="submit" value="Calculate BMI">
+	</form>
+	<br>
+    <br>
+    {{bmi}}
+    <br>
+    {{category}}
+	<table>
+		<tr>
+			<th>BMI Category</th>
+			<th>BMI Range</th>
+		</tr>
+		<tr>
+			<td>Underweight</td>
+			<td>&lt; 18.5</td>
+		</tr>
+		<tr>
+			<td>Normal weight</td>
+			<td>18.5 - 24.9</td>
+		</tr>
+		<tr>
+			<td>Overweight</td>
+			<td>25 - 29.9</td>
+		</tr>
+		<tr>
+			<td>Obesity Class I</td>
+			<td>30 - 34.9</td>
+		</tr>
+		<tr>
+			<td>Obesity Class II</td>
+			<td>35 - 39.9</td>
+		</tr>
+		<tr>
+			<td>Obesity Class III</td>
+			<td>&ge; 40</td>
+		</tr>
+	</table>
+</body>
+</html>

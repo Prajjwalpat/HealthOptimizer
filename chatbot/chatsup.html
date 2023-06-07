@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function send_message() {
+            var message = $("#message").val();
+            $.get("/get", {msg: message}).done(function(data) {
+                var bot_response = "<strong>Bot:</strong> " + data + "<br><br>";
+                $("#chat").append(bot_response);
+                $("#message").val("");
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Chatbot Example</h1>
+    <div id="chat">
+        <p><strong>Bot:</strong> Hi there! How can I help you today?</p>
+    </div>
+    <input type="text" id="message">
+    <button type="button" onclick="send_message()">Send</button>
+</body>
+</html>
